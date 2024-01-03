@@ -1,0 +1,110 @@
+<div class="modal-header">
+    <h4 class="modal-title">ADD AFFILIATE</h4>
+    <button type="button" class="close" (click)="activeModal.dismiss('Cross click')"><img
+            src="../../../../assets/images/close-icon.png" alt="close-icon">
+    </button>
+</div>
+<form [formGroup]="affiliateForm" (ngSubmit)="submitAffiliateForm()">
+    <div class="modal-boy">
+        <div class="container">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" formControlName="firstname"
+                    [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }" />
+                <div *ngIf="submitted && f['firstname'].errors" class="invalid-feedback">
+                    <div *ngIf="f['firstname'].errors['required']">First Name is required</div>
+                    <!-- <div class="alert-text" *ngIf="f['firstname'].errors['maxlength']">Name
+                        must be 3 to 60 alphabets.
+                    </div> -->
+                    <div class="alert-text" *ngIf="f['firstname'].errors['pattern'] && f['firstname'].errors['maxlength']">Name should not exceed above 60 letters: Special characters and numbers
+                        are
+                        not
+                        allowed.
+                    </div>
+                </div>
+                <div *ngIf="!f['firstname'].errors">
+                    <div class="invalid-feedback" class="alert-text" *ngIf="this.firstNameEmpty">
+                        Field should not contain only white spaces.
+                    </div>
+                </div>
+              
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" formControlName="lastname"
+                    [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }" />
+                <div *ngIf="submitted && f['lastname'].errors" class="invalid-feedback">
+                    <div *ngIf="f['lastname'].errors['required']">Last Name is required</div>
+                    <!-- <div class="alert-text" *ngIf="f['lastname'].errors['maxlength']">Name
+                        must be 3 to 60 alphabets.
+                    </div> -->
+                    <div class="alert-text" *ngIf="f['lastname'].errors['maxlength'] && f['lastname'].errors['pattern']">Name should not exceed above 60 letters: Special characters and numbers
+                        are
+                        not
+                        allowed.
+                    </div>
+                </div>
+                <div *ngIf="!f['lastname'].errors">
+                <div class="invalid-feedback" class="alert-text" *ngIf="this.lastNameEmpty">
+                    Field should not contain only white spaces.
+                </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="churchName">Organisation/Church Name</label>
+                <input type="text" class="form-control" formControlName="organizationorchurchname"
+                    [ngClass]="{ 'is-invalid': submitted && f['organizationorchurchname'].errors }" />
+                <div *ngIf="submitted && f['organizationorchurchname'].errors" class="invalid-feedback">
+                    <div *ngIf="f['organizationorchurchname'].errors['required']">Church Name is required</div>
+                </div>
+                <div *ngIf="!f['organizationorchurchname'].errors">
+                    <div class="invalid-feedback" class="alert-text" *ngIf="this.organizationEmpty">
+                        Field should not contain only white spaces.
+                    </div>
+                </div>
+                
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Contact Number</label>
+                <input type="text" class="form-control" formControlName="contactno"
+                    [ngClass]="{ 'is-invalid': submitted && f['contactno'].errors }" />
+                <div *ngIf="submitted && f['contactno'].errors" class="invalid-feedback">
+                    <div *ngIf="f['contactno'].errors['required']">Phonenumber is required</div>
+                    <div *ngIf="f['contactno'].errors['pattern']">Phone Number must be a valid,alphabets are not allowed.
+                        </div>
+                </div>
+                <div *ngIf="!f['contactno'].errors">
+                <div class="invalid-feedback" class="alert-text" *ngIf="this.contactNoEmpty">
+                    Field should not contain only white spaces.
+                </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="emailId">Email Id</label>
+                <input type="email" class="form-control" formControlName="email"
+                    [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                    <div *ngIf="f['email'].errors['required']">Email Id is required</div>
+                    <div *ngIf="f['email'].errors['pattern']">Invalid email format. Please enter a valid email address
+                        without spaces
+                        between letters.</div>
+                </div>
+                <div *ngIf="!f['email'].errors">
+                    <div class="invalid-feedback" class="alert-text" *ngIf="this.emailEmpty">
+                        Field should not contain only white spaces.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success">
+          Add Affiliate
+        </button>
+    </div>
+</form>
+
+<!-- <div class="fade show" style="text-align: center; padding-top: calc(100vh / 2); height: 100vh" *ngIf="this.showAffiliateLoader">
+    <i class="spinner-grow spinner-grow-sm"></i>
+    <span class="m-1">Loading...</span>
+  </div> -->

@@ -1,0 +1,71 @@
+
+<h4 class="manage-families-heading">Manage Categories</h4>
+<div class="search-category">
+  <button type="button" class="btn btn-primary common-add-btn" (click)="openFormModal()">Add Categories</button>
+
+  <!-- <mat-form-field>
+    <input matInput [matDatepicker]="startDatepicker" placeholder="Start Date" [(ngModel)]="startDate">
+    <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #startDatepicker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="endDatepicker" placeholder="End Date" [(ngModel)]="endDate">
+    <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #endDatepicker></mat-datepicker>
+  </mat-form-field>
+  <div class="search-date-hubspot">
+    <button type="button" class="hub-date-btn" (click)="filterData(startDate,endDate)">search</button>
+  </div> -->
+
+
+  <!-- <div class="form-group">
+    <select class="form-control search-field" [(ngModel)]="searchText" placeholder="Category Filter">
+      <option value="" selected>category</option>
+      <option value={{category.categoryname}} *ngFor="let category of allCategory">{{category.categoryname}}</option>
+    </select>
+  </div> -->
+</div>
+<table datatable [dtOptions]="dtOptions" class="row-border hover category-table" *ngIf="showCategoryGrid">
+  <thead>
+    <tr>
+      <th scope="col">Category Name</th>
+      <th scope="col">Display Order</th>
+      <th scope="col">Last Update At</th>
+      <!-- <th scope="col"><i class="cil-pencil"></i></th> -->
+      <!-- <th scope="col"><img src="../../../../assets/images/edit-icon.png" class="edit-icon"></th>
+
+      <th ><svg [cIcon]="icons.cilDelete" size="xl" title="List Icon"></svg></th> -->
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of this.allCategory | searchFilter:searchText ;let i = index">
+      <td>{{category.categoryname}}</td>
+      <td>{{category.displayorder}}</td>
+
+      <!-- <td>{{category.modifieddateutc}}</td> -->
+      <td>{{category.modifieddateutc.split('T')[0]}}</td>
+      <td><button class="btn" (click)="editCategory(i)"><img src="../../../../assets/images/edit-icon.png"
+            class="edit-icon"></button></td>
+      <td><button class="btn" (click)="deleteCategory(category.categoryid)"><img
+            src="../../../../assets/images/delete-icon.png" class="delete-icon"></button></td>
+    </tr>
+  </tbody>
+  <!-- <tfoot>
+    <tr>
+      
+      <th><input type="text" placeholder="Search first name" name="search-first-name" /></th>
+      <th><input type="text" placeholder="Search last name" name="search-last-name" /></th>
+    </tr>
+  </tfoot> -->
+</table>
+
+<!-- <div class="no-records" *ngIf="(!this.allCategory || this.allCategory.length < 1)">
+  <div>There are no Category records</div>
+</div> -->
+<div class="fade show" *ngIf="this.showCategoryLoader"
+  style="text-align: center; padding-top: calc(100vh / 2); height: 100vh">
+  <i class="spinner-grow spinner-grow-sm"></i>
+  <span class="m-1">Loading...</span>
+</div>

@@ -1,0 +1,77 @@
+
+<!-- MODAL FOR VISITORS -->
+<div class="view-invitors-section">
+<div class="modal-header family-members-heading">
+  <h4 class="modal-title">VIEW FAMILY MEMBERS</h4>
+  <button type="button" class="close"  (click)="close()"><img src="../../../../assets/images/close-icon.png" alt="close-icon">
+  </button>
+</div>
+
+  <div class="modal-boy modal-space">
+    <div class="export-section-detail">
+      <button class="btn btn-success csv-btn" (click)="downloadCSV()">
+        <div class="d-flex csv-export">
+          <span>CSV</span>
+          <img src="../../../../assets/images/download-black.png">
+        </div>
+      </button>
+    </div>
+      <div class="container">
+        <table class="table" datatable [dtOptions]="dtOptions" class="row-border hover" *ngIf="this.inviteeResult">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Family Role</th>
+              <th scope="col">Last Updated</th>
+              <th scope="col">Status</th>
+              <th scope="col">HOH/Not</th>
+              <th scope="col">Assessments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let invitees of this.inviteeResult;let i=index">
+              <td>{{invitees.Firstname}} {{invitees.Lastname}}</td>
+              <td>{{invitees.Email}}</td>
+              <td>{{invitees.Familyrole}}</td>
+              <td>{{invitees.Modifieddateutc.split('T')[0]}}</td>
+              <td><span class="register-btn"
+                  [ngClass]="{'current-category': invitees.Lastname,'non-register':!invitees.Lastname}"
+                  id={{invitees.Lastname}}>{{invitees.Lastname ? 'Attempted Successfully' : 'Not Attempted'}}</span></td>
+              <td>
+                <input type="checkbox" *ngIf="invitees.Lastname" [checked]="invitees.IsHoh"  (change)="createdHOH(invitees.Familyid,invitees.Familymemberid,invitees.Firstname)"/>
+                <!-- <input type="checkbox" *ngIf="invitees.Lastname" [(ngModel)]="invitees.IsHoh"  (ngModelChange)="createdHOH(invitees.Familyid,invitees.Familymemberid,invitees.Firstname)"/> -->
+              </td>
+              <td><button type="button" class="btn btn-success" *ngIf="invitees.Lastname"
+                  (click)="viewResultInvitee(invitees.visitorid,invitees.Firstname,invitees.Familymemberid,invitees.Score)">{{invitees.AttemptCount}}</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+  <!-- <div class="modal-footer">
+      <button class="btn btn-success">
+         Update
+      </button>
+  </div> -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="fade show" *ngIf="!this.showdetailGrid"
+  style="text-align: center; padding-top: calc(100vh / 2); height: 100vh">
+  <i class="spinner-grow spinner-grow-sm"></i>
+  <span class="m-1">Loading...</span>
+</div>

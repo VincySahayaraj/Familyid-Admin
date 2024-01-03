@@ -1,0 +1,218 @@
+.edit-icon,
+.delete-icon {
+    width: 23px;
+    height: 23px;
+}
+
+.export-section-visitor {
+    display: flex;
+    justify-content: end;
+}
+
+.user-table {
+    padding-top: 15px;
+}
+
+.csv-btn {
+    width: 75px;
+    height: 40px;
+    color: #fff;
+}
+
+.csv-export img {
+    width: 23px;
+}
+
+.search-overall {
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+
+    input {
+        padding: 0px 15px;
+        width: 96%;
+        border-radius: 5px;
+        border: 1px solid #b1b7c1;
+        height: 38px;
+        background-color: transparent;
+    }
+}
+
+[type=search] {
+    outline-offset: 0px !important;
+}
+
+.search-category-visitors {
+    display: flex;
+    gap: 21px;
+    margin-bottom: 10px;
+
+    .date-filter-visitor {
+        display: flex;
+        // gap: 21px;
+        // align-items: baseline;
+        // margin-top: -40px;
+    }
+
+    .status-filter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.manage-members-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.updation-to-members {
+    font-size: 18px;
+    margin: 0px 10px;
+    padding-bottom: 10px;
+}
+
+.updation-from-visitor {
+    font-size: 18px;
+    margin: 0px 12px;
+    font-weight: 400;
+}
+
+.last-updation-members {
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+.search-field {
+    width: 200px;
+    margin-bottom: 24px;
+    background: url('../../../../assets/images/down-arrow-5.png') no-repeat right center;
+    background-position: 96% center;
+    background-size: 18px 20px;
+    padding-right: 35px;
+    cursor: pointer;
+}
+
+.searchButton img {
+    width: 23px;
+}
+
+.searchButton {
+    cursor: pointer;
+}
+
+.date-filter-visitor .date-input-visitor {
+    border: 1px solid #b1b7c1;
+    height: 40px;
+    border-radius: 7px;
+}
+
+.date-filter-visitor .mat-mdc-form-field-bottom-align::before {
+
+    height: unset;
+    content: unset;
+}
+
+.date-filter-visitor .mat-mdc-form-field-icon-suffix {
+    align-items: baseline;
+}
+
+.date-filter-visitor .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: transparent !important;
+}
+
+.mat-mdc-form-field-infix {
+    min-height: unset;
+    padding: 0px !important;
+}
+
+.mat-mdc-form-field-flex {
+    height: 40px;
+    align-items: center !important;
+}
+
+.search-date-hubspot {
+    .hub-date-btn {
+        border-radius: 7px;
+        border: none;
+        background-color: #321fdb;
+        padding: 7px 20px;
+        color: #fff;
+    }
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background: transparent;
+}
+
+@media(min-width:1000px) and (max-width:1600px) {
+
+    .search-category-visitors .search-field {
+        width: 125px;
+        font-size: 12px;
+    }
+
+    .search-category-visitors .date-filter-visitor {
+        // margin-top: -38px;
+        align-items: baseline;
+    }
+
+    .search-overall input {
+        width: 94%;
+    }
+
+    .date-filter-visitor .date-input-visitor {
+        width: 140px;
+        font-size: 12px;
+        height: 33px
+    }
+
+    .search-date-hubspot .hub-date-btn {
+        padding: 4px 10px;
+    }
+
+    .last-updation-members {
+        font-size: 13px;
+    }
+
+    .updation-from-visitor {
+        font-size: 12px;
+    }
+
+    .updation-to-members {
+        font-size: 12px;
+    }
+
+    .search-category-hubspot .date-filter-visitor .date-section-visitor {
+        display: flex;
+        justify-content: center;
+        // align-items: end;
+    }
+
+    .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+        margin-top: -12px;
+    }
+
+    .user-table {
+        font-size: 12px
+    }
+}
+
+
+@media(min-width:1601px) and (max-width:1890px) {
+    .date-section-visitor {
+        display: flex;
+        align-items: baseline;
+    }
+
+    .date-filter-visitor .date-input-visitor {
+        width: 200px;
+    }
+    .last-updation-members ,.updation-from-visitor,.updation-to-members {
+        font-size: 13px;
+        padding-bottom: 0px;
+    }
+ 
+}
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';

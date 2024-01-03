@@ -1,0 +1,65 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center" *ngIf="!this.loader">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="8">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form *ngIf="form" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
+                <div class="familyid-logo">
+                  <img src="../../../../assets/images/familyid-logo.png" alt="logo">
+                </div>
+               
+                <!-- <h1>Login</h1> -->
+                <p class="text-medium-emphasis">Sign In to your account</p>
+                <c-input-group class="mb-3">
+
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input autoComplete="username" class="form-control" placeholder="Username" formControlName="username"
+                    required />
+                </c-input-group>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input autoComplete="current-password" class="form-control" formControlName="password" required
+                    placeholder="Password"  [type]="fieldTextType ? 'text' : 'password'"/>
+
+                   
+                      <span cInputGroupText (click)="toggleFieldTextType()" class="password-icon">
+                       
+                        <img src="../../../../assets/images/eye-slash.png" *ngIf="!fieldTextType">
+                        <img src="../../../../assets/images/eye-open.png" *ngIf="fieldTextType">
+                       
+                      </span>
+                    
+                </c-input-group>
+                <c-row>
+                  <c-col xs="6">
+                    <button cButton type="submit" class="px-4" color="primary">
+                      Login
+                    </button>
+                  </c-col>
+                  <!-- <c-col class="text-right" xs="6">
+                    <button cButton class="px-0" color="link">
+                      Forgot password?
+                    </button>
+                  </c-col> -->
+                </c-row>
+              </form>
+
+            </c-card-body>
+          </c-card>
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>
+
+
+<div class="fade show" *ngIf="this.loader" style="text-align: center; padding-top: calc(100vh / 2); height: 100vh">
+  <i class="spinner-grow spinner-grow-sm"></i>
+  <span class="m-1">Loading...</span>
+</div>

@@ -1,0 +1,29 @@
+<div id="myModal" class="copy-modal">
+    <button type="button" class="close" (click)="decline()"><img src="../../../../assets/images/close-icon.png"
+        alt="close-icon">
+</button>
+    <div class="modal-dialog modal-confirm">
+        
+        <div class="modal-content">
+            <div class="modal-header flex-column">
+                <!-- <div class="">
+                    <i class="material-icons">&#9888;</i>
+                </div>						 -->
+                <h4 class="modal-title w-100">{{ title }}</h4>	
+               
+            </div>
+            <div class="modal-body">
+                <p class="message-members">{{message}}</p>
+              <div class="copy-affiliate">
+                <p>{{affiliateLink}}</p>
+                <button (click)="copyContent()" class="copy-btn" *ngIf="!this.copyText"><img src="../../../../assets/images/copy-icon.png" class="copy-icon"></button>
+                <!-- <button class="copy-btn btn-primary" (click)="copyContent()">{{this.copyText?'copied':'Copy'}}</button> -->
+              </div>
+            </div>
+            <!-- <div class="modal-footer justify-content-center"> -->
+                <!-- <button type="button" class="btn btn-secondary" (click)="decline()">{{ btnCancelText }}</button> -->
+                <!-- <button type="button" class="btn btn-danger" (click)="accept()">{{ btnOkText }}</button> -->
+            <!-- </div> -->
+        </div>
+    </div>
+</div> 

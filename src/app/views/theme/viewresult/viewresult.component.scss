@@ -1,0 +1,356 @@
+.result-section-main {
+    background-color: #3c4b64;
+    position: relative;
+    padding: 50px 0px 100px 0px;
+}
+
+.result-inner-section {
+    height: 100%;
+    background-color: #FFF;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 25px 100px 50px 100px;
+    width: 100%;
+    max-width: 1110px;
+    position: relative;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.progress-bar-section {
+    margin: 130px 0px;
+}
+.name-your-family {
+    font-family: 'Montserrat bold';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 38px;
+    text-align: center;
+    color: #333333;
+    margin-bottom: 0px;
+}
+.score-heading {
+    font-family: 'Montserrat Bold';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 38px;
+    text-align: center;
+    color: #121212;
+}
+.fid-question1-main .question-section .mat-mdc-progress-bar .mdc-linear-progress__buffer {
+    position: relative;
+}
+.mat-mdc-progress-bar .mdc-linear-progress__buffer-bar {
+    --mdc-linear-progress-active-indicator-color: #EDC228 !important;
+    border-radius: 50px !important;
+}
+.mat-mdc-progress-bar {
+    --mdc-linear-progress-active-indicator-color: #EDC228 !important;
+    border-radius: 50px !important;
+}
+.percentage-questions {
+
+    font-family: 'Montserrat Bold';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 26px;
+    text-align: center;
+    color: #333333;
+
+}
+
+.progress-bar-text {
+    padding-top: 10px;
+    display: flex;
+    font-family: 'Montserrat Bold';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 21px;
+    line-height: 26px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #231F20;
+    justify-content: center;
+
+}
+
+.progress-bar-section {
+    padding: 0px 122px;
+    cursor: pointer;
+}
+
+.result-progress {
+    background: linear-gradient(90deg, #CC2C24 0%, #FFCA26 68%, #429653 100%);
+    border-radius: 13px;
+}
+
+.result-inner-section {
+    border-bottom: 1px solid #EEEEEE;
+}
+
+
+.progress-values {
+    border-bottom: 1px solid #EEEEEE;
+    padding-bottom: 40px;
+}
+
+.progress-result-main {
+    margin-bottom: 20px;
+}
+
+.based-on-results {
+    display: flex;
+    margin: 45px 0px 0px 100px;
+    justify-content: center;
+    font-family: 'Adobe Garamond';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 16px;
+    text-align: center;
+    color: #575757;
+}
+
+.notification-based-result {
+    width: 125px;
+    margin: 0 auto;
+}
+.needs-improvement {
+    margin-left: 0px;
+}
+
+/* percentage */
+.ng5-slider-inner-tooltip::after {
+    content: '%';
+    display: inline-block;
+}
+.ng5-slider .ng5-slider-tick-value::after {
+    content: '%' !important;
+    display: inline-block !important;
+}
+.ng-inserted {
+    width: 100%;
+}
+.my_class1 {
+    font-weight: 700;
+}
+
+//Accordion 
+.accordion {
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+.visible {
+    display: block;
+    border-radius: 5px;
+}
+
+.family-type-logo {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.family-type-logo img {
+    width: 300px;
+    height: 300px;
+}
+
+.read-more {
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 38px;
+    /* identical to box height, or 211% */
+    text-decoration-line: underline;
+    color: #4A4A4A;
+
+
+}
+
+.attempt-acc-button {
+
+    margin: 10px 0px;
+
+    .attempt-heading {
+        display: flex;
+        justify-content: space-between;
+        // background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 8px;
+        width: 97%;
+        transition: 0.4s;
+        border: 1px solid #585252;
+        border-radius: 5px;
+        margin: 0 10px 0px 17px;
+    }
+}
+
+
+
+.attempt-acc-button:hover .attempt-heading{
+        color:#1A9D71!important;
+        background-color:  #E1F3ED !important;
+        border:1px solid #65BFA1;
+    }
+
+    .attempt-acc-button:hover .attempt-heading .heading-attempt{
+
+        color:#1A9D71!important;
+    }
+
+    .attempt-acc-button:hover .attempt-heading .heading-attempt  .attented-date{
+        color:#1A9D71!important;
+    }
+
+
+    .attempt-acc-button:hover .attempt-heading .arrow-attempt .black-right-arrow{
+
+        display: none;
+
+
+    }
+.date-time-attempted{
+    display: flex;
+    justify-content: center;
+}
+    .attempt-acc-button:hover .attempt-heading .arrow-attempt .green-down-arrow{
+
+        display: block;
+
+
+    }
+    .green-down-arrow{
+
+        display: none;
+    }
+
+    .heading-attempt{
+        text-align: center;
+    }
+.family-content {
+    background: #F4F4F4;
+    border-radius: 20px;
+    font-family: 'Adobe Garamond';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    padding: 40px;
+    margin: 70px 30px;
+    color: #272424;
+}
+
+.family-members-heading {
+    display: flex;
+    justify-content: center;
+}
+
+.heading-attempt {
+    font-size: 18px;
+    color: #000;
+    font-weight: 500;
+    margin: 0px;
+    background: none;
+}
+
+.attented-date {
+    font-size: 21px;
+    color: #000;
+    font-weight: 400;
+}
+
+.arrow-attempt {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.family-content {
+    background: #F4F4F4;
+    border-radius: 20px;
+    font-family: 'Adobe Garamond';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    padding: 40px;
+    color: #272424;
+}
+
+/* scroll bar */
+.family-content-scroll {
+    height: 600px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 0px 50px 50px 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    height: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.read-more {
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 38px;
+    text-decoration-line: underline;
+    color: #4A4A4A;
+    cursor: pointer;
+}
+
+.close img {
+    width: 50px;
+}
+
+.close {
+    border: none;
+    background: none;
+    position: absolute;
+    right: 0px;
+}
+
+.result-body {
+    margin-top: 10px;
+}
+
+@media(min-width:1100px) and (max-width:1600px){
+    .result-inner-section{
+        max-width:900px
+    }
+}

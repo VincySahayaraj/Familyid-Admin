@@ -1,0 +1,145 @@
+<!-- Heading -->
+<h4 class="manage-affiliate-heading">Manage Affiliate</h4>
+<!-- Date Filter -->
+<div class="search-category-affiliate">
+  <div class="form-group date-filter-affiliate">
+    <div>
+      <label class="last-updation-affiliate">Last Updation<span class="updation-from-affiliate">From:</span> </label>
+      <mat-form-field class="date-input-affiliate">
+        <input matInput [matDatepicker]="startDatepicker" placeholder="Start Date" [(ngModel)]="startDate"
+          required>
+        <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatepicker></mat-datepicker>
+      </mat-form-field>
+      <mat-error *ngIf="this.dateValidation">This field is required</mat-error>
+    </div>
+    <div>
+      <label class="updation-to-affiliate">To:</label>
+      <mat-form-field class="date-input-affiliate">
+        <input matInput [matDatepicker]="endDatepicker" placeholder="End Date" [(ngModel)]="endDate"
+          required>
+        <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatepicker></mat-datepicker>
+      </mat-form-field>
+      <mat-error *ngIf="this.endDateValidation">This field is required</mat-error>
+    </div>
+  </div>
+
+  <!-- Status Filter -->
+  <!-- <div class="form-group status-filter">
+    <select class="form-control search-field" [(ngModel)]="statusAffiliate" 
+      placeholder="Category Filter">
+      <option value="" selected>Status</option>
+      <option value="1">Success</option>
+      <option value="2">Failure</option>
+    </select>
+  </div> -->
+
+  <!-- Search button -->
+  <div class="search-date-hubspot" (click)="affliateSearchofStatus(startDate,endDate)">
+    <button type="button" class="hub-date-btn btn-primary color-1">Search</button>
+  </div>
+</div>
+
+<!-- Global Search -->
+<div class="search-overall">
+  <c-input-group class="w-100 col-12">
+    <input type="search" [(ngModel)]="searchQuery" placeholder="Type to search Name/Church Name/Email..." >
+    <span cInputGroupText class="searchButton" (click)="onSearch()">
+      <img src="../../../../assets/images/search-icon.png" />
+    </span>
+  </c-input-group>
+</div>
+
+<div class="add-affiliate">
+  <!-- Add Affiliate -->
+  <div>
+    <button type="button" class="btn btn-primary common-add-btn" (click)="openLinkModal()">Add Affiliate</button>
+  </div>
+
+  <!-- Export button -->
+  <div class="export-section">
+    <button class="btn btn-success csv-btn" (click)="downloadCSV()">
+      <div class="d-flex csv-export">
+        <span>CSV</span>
+        <img src="../../../../assets/images/download-black.png">
+      </div>
+    </button>
+  </div>
+</div>
+
+<!-- Affiliate Table -->
+<table datatable   [dtOptions]="dtOptions" class="row-border hover manage-affiliateTable" *ngIf="showAffiliateGrid">
+  <thead>
+    <tr>
+      <th scope="col" class="name-theading">Name</th>
+      <th scope="col" class="organization-theading">Organization Name</th>
+      <th scope="col" class="email-theading">Email</th>
+      <th scope="col" class="contact-theading">Contact Number</th>
+      <th scope="col" class="link-theading">Link</th>
+      <th scope="col" class="families-theading">Families</th>
+      <th scope="col" class="lastUpdate-theading">Last Updated</th>
+      <th scope="col">Edit</th>
+      <th scope="col" class="families-theading">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let affiliate of this.allAffiliates;let i = index"  >
+      <td>{{affiliate.Firstname}} {{affiliate.Lastname}}</td>
+      <td>{{affiliate.Organizationorchurchname}}</td>
+      <td>{{affiliate.Email}}</td>
+      <td>{{affiliate.Contactno==null?'-':affiliate.Contactno}}</td>
+      <td class="d-flex link"><p>{{affiliate.Affiliatelink}}</p> <button class="copy-btn" (click)="copyAffiliate(affiliate.Affiliatelink,i)"><img src="../../../../assets/images/copy-icon.png"></button>
+      <p id="copy_{{i}}" class="copied-text" style="display:none" >Copied to clipboard!</p></td>
+      <td>
+        <button class="btn btn-info invitors-count" (click)="viewFamilies(affiliate.Affiliateid,affiliate.Createddateutc)" [disabled]="buttonDisabled"
+        *ngIf="affiliate.Familycount<=0 ? buttonDisabled : !buttonDisabled">{{affiliate.Familycount}}</button>
+        <p>{{affiliate.Familycount<=0?'-':''}}</p>
+      </td>
+      <td>{{affiliate.Modifieddateutc.split('T')[0]}}</td>
+      <td><button class="btn" (click)="editAffiliate(i,affiliate.Affiliateid)"><img src="../../../../assets/images/edit-icon.png"
+            class="edit-icon"></button></td>
+      <td><button class="btn" (click)="deleteAffiliate(affiliate.Affiliateid)"><img
+            src="../../../../assets/images/delete-icon.png" class="delete-icon"></button></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Loader -->
+<!-- <div class="no-records" *ngIf="(!this.allAffiliates || this.allAffiliates.length < 1)">
+  <div>There are no Affiliate records</div>
+</div> -->
+
+<div class="fade show" style="text-align: center; padding-top: calc(100vh / 2); height: 100vh" *ngIf="this.showAffiliateLoader">
+  <i class="spinner-grow spinner-grow-sm"></i>
+  <span class="m-1">Loading...</span>
+</div>
+
+<div class="view-families">
+  <c-modal id="liveDemoModal" [visible]="visible">
+    <c-modal-body>
+      <h5 class="families-church">Families belongs to this Church</h5>
+      <div class="close-icon-alignment">
+        <button type="button" class="close-result-modal" (click)="closeResult()"><img
+            src="../../../../assets/images/close-icon.png" alt="close-icon">
+        </button>
+      </div>
+      <div class="families-section">
+          <table  id="families" class="row-border hover">
+            <tr class="table-heading">
+              <th>Family Name</th>
+              <th>Family Type</th>
+              <th>Members Count</th>
+              <th>Last Updated</th>
+            </tr>
+            <tr class="table-body" *ngFor='let family of this.familyDetails,let i=index'>
+              <td>{{family.Familyname}}</td>
+              <td>{{family.Familytype}}</td>
+              <td>{{family.Invitedmemberscount}}</td>
+              <td>{{family.Modifieddateutc}}</td>
+            </tr>
+          </table>
+        </div>
+    </c-modal-body>
+  </c-modal>
+</div>

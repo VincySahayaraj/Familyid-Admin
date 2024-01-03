@@ -1,0 +1,75 @@
+<div class="modal-header">
+    <h4 class="modal-title">EDIT QUESTION</h4>
+    <button type="button" class="close" (click)="close()"><img src="../../../../assets/images/close-icon.png"
+            alt="close-icon">
+    </button>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="submitEditForm()">
+    <div class="modal-boy">
+        <div class="container">
+            <div class="form-group">
+                <label for="question">Question</label>
+                <textarea matInput type="text" class="form-control" formControlName="question" required
+                    [(ngModel)]="userObj.question" [ngClass]="{ 'is-invalid': submitted && f['question'].errors }">
+                    </textarea>
+                <div *ngIf="submitted && f['question'].errors" class="invalid-feedback">
+                    <div *ngIf="f['question'].errors['required']">Question is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="categoryName">Category Name</label>
+
+                <select class="form-control" formControlName="categoryincluded" required
+                    [(ngModel)]="userObj.categoryincluded" [value]="userObj.categoryincluded"
+                    [ngClass]="{ 'is-invalid': submitted && f['categoryincluded'].errors }">
+                    <option class="select-your-role" value="">- Select Category-</option>
+                    <option *ngFor="let searchCategory of allCategories;let i=index"
+                        [selected]="searchCategory.categoryname===userObj.categoryincluded">
+                        {{searchCategory.categoryname}}
+                    </option>
+
+                </select>
+                <div *ngIf="submitted && f['categoryincluded'].errors" class="invalid-feedback">
+                    <div *ngIf="f['categoryincluded'].errors['required']">Category is required</div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ageCategory">Age Category</label>
+                <select class="form-control" formControlName="agegroup" [(ngModel)]="userObj.agegroup"
+                    [ngClass]="{ 'is-invalid': submitted && f['agegroup'].errors }" required>
+                    <option class="select-your-role" value="">- Select Category-</option>
+                    <option>
+                        TEENAGER
+                    </option>
+                    <option>
+                        ADULT
+                    </option>
+                </select>
+                <div *ngIf="submitted && f['agegroup'].errors" class="invalid-feedback">
+                    <div *ngIf="f['agegroup'].errors['required']">Age category is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea type="text" class="form-control" formControlName="description"
+                    [(ngModel)]="userObj.description">
+                </textarea>
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="priority">Priority</label>
+
+                <input mdbCheckbox class="form-check-input form-control" formControlName="priority" type="checkbox"
+                    value="" id="flexCheckChecked" [checked]="true" [(ngModel)]="userObj.priority" />
+            </div> -->
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-success">
+            Update
+        </button>
+    </div>
+</form>

@@ -1,0 +1,115 @@
+<h4 class="manage-members-heading">Manage Family Members</h4>
+
+<!-- Date Filter -->
+<div class="search-category-visitors">
+  <div class="form-group date-filter-visitor">
+    <div class="date-section-visitor">
+      <label class="last-updation-members">Last Updation<span class="updation-from-visitor">From:</span> </label>
+      <mat-form-field class="date-input-visitor">
+        <input matInput [matDatepicker]="startDatepicker" placeholder="Start Date" [(ngModel)]="startDate"
+           required>
+        <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatepicker></mat-datepicker>
+      </mat-form-field>
+      <mat-error *ngIf="this.dateValidation">This field is required</mat-error>
+    </div>
+    <div  class="date-section-visitor">
+      <label class="updation-to-members">To:</label>
+      <mat-form-field class="date-input-visitor">
+        <input matInput [matDatepicker]="endDatepicker" placeholder="End Date" [(ngModel)]="currentDate"
+          required>
+        <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatepicker></mat-datepicker>
+      </mat-form-field>
+      <mat-error *ngIf="this.endDateValidation">This field is required</mat-error>
+    </div>
+  </div>
+
+    <!-- Filter for familyRole & HOH -->
+    <div class="form-group familytype-filter">
+      <select class="form-control search-field" [(ngModel)]="familyrole">
+        <option value=""  selected>All Family Role</option>
+        <option value={{familyrole}} *ngFor="let familyrole of this.allFamilyRoles;let i=index">{{familyrole}}
+        </option>
+      </select>
+    </div>
+  
+    <div class="form-group completed-filter">
+      <select type="search" class="form-control search-field" [(ngModel)]="isHOH">
+        <option value="false"  selected>All Members</option>
+        <option value=true>HOH</option>
+        <!-- <option value=false>Members</option> -->
+      </select>
+    </div>
+
+      <!-- Affiliate Filter -->
+  <div class="form-group status-filter">
+    <select class="form-control search-field" [(ngModel)]="affiliateChurch"
+      placeholder="Category Filter">
+      <option value="" selected>All Affiliates</option>
+      <option value={{affiliate.affiliateid}} *ngFor="let affiliate of this.allAffiliateTypes;let i=index">{{affiliate.organizationorchurchname}}</option>
+    </select>
+  </div>
+
+  <div class="search-date-hubspot">
+    <button type="button" class="hub-date-btn btn-primary color-1"
+      (click)="onSearchOfFilters(startDate,currentDate,isHOH,familyrole,affiliateChurch)">Search</button>
+  </div>
+</div>
+
+<!-- Global Search -->
+<div class="search-overall">
+  <c-input-group class="w-100 col-12">
+    <input type="search" [(ngModel)]="searchQueryVisitor" placeholder="Type here to search Name/Email/Family role..." >
+    <span cInputGroupText class="searchButton">
+      <img src="../../../../assets/images/search-icon.png" (click)="onSearchVisitor()"/>
+    </span>
+  </c-input-group>
+</div>
+
+<!-- Export CSV -->
+<div class="export-section-visitor">
+  <button class="btn btn-success csv-btn" (click)="downloadCSV()">
+    <div class="d-flex csv-export">
+      <span>CSV</span>
+      <img src="../../../../assets/images/download-black.png">
+    </div>
+  </button>
+</div>
+
+<!-- Member table -->
+<table datatable [dtOptions]="dtOptions" class="row-border hover user-table" *ngIf="showVisitorGrid">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Contact Number</th>
+      <th scope="col">Family Role</th>
+      <th scope="col">Last Updated</th>
+      <th scope="col">Assessments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let users of allUser; let i = index">
+      <td>{{users.Firstname}}&nbsp;{{users.Lastname}}</td>
+      <td>{{users.Email}}</td>
+      <td>{{users.Contactno==null || users.Contactno==""? '-':users.Contactno}}</td>
+      <!-- <td> {{users.Familyrole === 'Other' ? users.Other : users.Familyrole}}</td> -->
+      <td>{{users.Familyrole}}</td>
+      <td>{{users.Modifieddateutc.split('T')[0]}}</td>
+      <td><button class="btn btn-success" (click)="viewResult(users.Familymemberid,users.Firstname)" *ngIf="users.AttemptCount>0">{{users.AttemptCount}}</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <div class="no-records" *ngIf="(!this.allUser || this.allUser.length < 1)">
+  <div>There are no Member records</div>
+</div> -->
+
+<!-- Loader -->
+<div class="fade show" *ngIf="this.showVisitorLoader"
+  style="text-align: center; padding-top: calc(100vh / 2); height: 100vh">
+  <i class="spinner-grow spinner-grow-sm"></i>
+  <span class="m-1">Loading...</span>
+</div>

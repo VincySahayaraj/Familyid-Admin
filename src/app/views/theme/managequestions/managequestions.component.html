@@ -1,0 +1,64 @@
+<h4 class="manage-families-heading">Manage Questions</h4>
+<div class="search-category">
+<button type="button" class="btn btn-primary common-add-btn" (click)="openQuestionModal()">Add Questions</button>
+
+<div class="search-filter">
+<div class="form-group ">
+  <select name="searchText" class="form-control search-field"  [(ngModel)]="searchText" >
+    <option  value=""  selected>Select Any Category</option>
+    <option  *ngFor="let category of  this.allCategory" value={{category.categoryname}}>{{category.categoryname}}</option>
+  </select>
+</div>
+<div class="form-group">
+  <select  class="form-control search-field"  [(ngModel)]="searchAge" placeholder="Age Category Filter"  >
+    <option  value=""  selected>Select Age Category <img src="../../../../assets/images/down-arrow-5.png"></option>
+    <option  value="0">TEENAGER</option>
+    <option  value="1">ADULT</option>
+  </select>
+</div>
+<div>
+  <button type="button" class="btn btn-primary search-status-btn" (click)="getCategoryBasedQuestion(searchAge,searchText)">Search</button>
+</div>
+</div>
+
+</div>
+<table class="table" datatable   [dtOptions]="dtOptions"   class="table row-border hover manage-questionTable"  *ngIf="showQuestionGrid">
+  <thead>
+    <tr>
+      <th scope="col">Question</th>
+      <th scope="col">Category</th>
+      <th scope="col">Age Category</th>
+      <th scope="col">Description</th>
+      <!-- <th scope="col">Priority</th> -->
+      <th scope="col">Created At</th>
+      <th scope="col">Last Updated</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let question of this.allQuestion;let i=index" >
+
+      <td>{{question.question}}</td>
+      <td>{{question.categoryincluded}}</td>
+      <td>{{question.agegroup}}</td>
+      <td>{{question.description}}</td>
+      <!-- <td>{{question.priority}}</td> -->
+      <!-- <td>{{question.createddateutc}}</td>
+      <td>{{question.modifieddateutc}}</td> -->
+      <td>{{question.createddateutc.split('T')[0]}}</td>
+      <td>{{question.modifieddateutc.split('T')[0]}}</td>
+      <td><button class="btn" (click)="editQuestion(i)"><img src="../../../../assets/images/edit-icon.png" class="edit-icon"></button></td>
+      <td><button class="btn" (click)="deleteQuestion(question.questionid)"><img src="../../../../assets/images/delete-icon.png" class="delete-icon"></button></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <div class="no-records" *ngIf="(!this.allQuestion || this.allQuestion.length < 1)">
+  <div>There are no Question records</div>
+</div> -->
+
+<div class="fade show" *ngIf="this.showLoader" style="text-align: center; padding-top: calc(100vh / 2); height: 100vh">
+  <i class="spinner-grow spinner-grow-sm"></i>
+  <span class="m-1">Loading...</span>
+</div>

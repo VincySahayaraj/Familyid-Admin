@@ -1,0 +1,16 @@
+:host {
+  .legend {
+    small {
+      font-size: x-small;
+    }
+  }
+}
+
+
+.member-table{
+
+  tr:nth-of-type(even){
+    background-color: rgba(0, 0, 21, 0.05);
+  }
+
+}

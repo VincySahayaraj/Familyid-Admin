@@ -1,0 +1,20 @@
+<div id="myModal" class=" ">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header flex-column">
+                <div class="">
+                    <i class="material-icons">&#9888;</i>
+                </div>						
+                <h4 class="modal-title w-100">{{ title }}</h4>	
+               
+            </div>
+            <div class="modal-body">
+                <p>{{message}}</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" (click)="decline()">{{ btnCancelText }}</button>
+                <button type="button" class="btn btn-danger" (click)="accept()">{{ btnOkText }}</button>
+            </div>
+        </div>
+    </div>
+</div>  

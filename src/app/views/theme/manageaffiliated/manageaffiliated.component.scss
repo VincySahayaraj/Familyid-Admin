@@ -1,0 +1,378 @@
+.edit-icon,
+.delete-icon {
+    width: 23px;
+    height: 23px;
+}
+
+.search-category {
+    margin-bottom: 20px;
+}
+
+.search-overall {
+    display: flex;
+    width: 100%;
+    margin-bottom: 24px;
+
+    input {
+        padding: 0px 15px;
+        width: 96%;
+        border-radius: 5px;
+        border: 1px solid #b1b7c1;
+        height: 40px;
+        background-color: transparent;
+    }
+}
+
+.link {
+    position: relative;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+}
+
+.copy-btn img {
+    width: 23px;
+}
+
+.copied-text {
+    color: #2ba239;
+    font-size: 14px;
+    position: absolute;
+    top: 20px;
+    left: 373px;
+    font-weight: 500;
+}
+
+.date-filter-affiliate .date-input-affiliate {
+    border: 1px solid #b1b7c1;
+    height: 40px;
+    border-radius: 7px;
+}
+
+.date-filter-affiliate .mat-mdc-form-field-bottom-align::before {
+
+    height: unset !important;
+    content: unset !important;
+}
+
+.date-filter-affiliate .mat-mdc-form-field-icon-suffix {
+    align-items: baseline;
+}
+
+.manage-affiliateTable {
+
+    overflow-wrap: anywhere;
+
+}
+
+[type=search] {
+    outline-offset: 0px !important;
+}
+
+.searchButton {
+    cursor: pointer;
+}
+
+.searchButton img {
+    width: 23px;
+}
+
+.search-category-affiliate .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+
+    background: transparent;
+}
+
+.search-category-affiliate {
+
+    display: flex;
+    gap: 21px;
+    margin-bottom: 24px;
+
+    .date-filter-affiliate {
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
+    }
+
+    .status-filter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .search-field {
+        width: 200px;
+        margin-bottom: 24px;
+        background: url('../../../../assets/images/down-arrow-5.png') no-repeat right center;
+        background-position: 96% center;
+        background-size: 18px 20px;
+        padding-right: 35px;
+        cursor: pointer;
+    }
+
+    .search-date-hubspot {
+        .hub-date-btn {
+            border-radius: 10px;
+            border: none;
+            background-color: #321fdb;
+            padding: 7px 20px;
+            color: #fff;
+        }
+    }
+}
+
+.add-affiliate {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.export-section {
+    display: flex;
+    justify-content: end;
+}
+
+.csv-btn {
+    width: 75px;
+    height: 40px;
+    color: #000;
+}
+
+.csv-export img {
+    width: 23px;
+}
+
+.manage-affiliate-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.updation-to-affiliate {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.updation-from-affiliate {
+    font-size: 18px;
+    margin: 0px 12px;
+    font-weight: 400;
+}
+
+.last-updation-affiliate {
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.mat-mdc-form-field-infix {
+    min-height: unset;
+    padding: 0px !important;
+}
+
+.mat-mdc-form-field-flex {
+    height: 40px;
+    align-items: center !important;
+}
+
+.close-result-modal {
+    border: none;
+    background: none;
+}
+
+.close-result-modal img {
+    width: 50px;
+}
+
+.close-icon-alignment {
+
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 14px;
+}
+
+#families {
+    width: 100%;
+    padding: 10px;
+}
+
+#families tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#families tr:hover {
+    background-color: #ddd;
+}
+
+#families td,
+#customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.families-church {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.link p {
+    // width: 370px;
+
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background: none;
+}
+.name-theading{
+    width:75px !important;
+}
+.email-theading{
+    width:50px !important;
+}
+.families-theading {
+    width: 80px !important;
+}
+
+.contact-theading {
+    width: 140px !important;
+}
+
+.organization-theading {
+    width: 160px !important;
+}
+
+.lastUpdate-theading {
+    width: 135px !important;
+}
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@media(min-width:1300px) and (max-width:1600px) {
+    .search-overall input {
+        width: 95%;
+    }
+
+    .link p {
+        // width: 140px;
+    }
+
+    .manage-affiliateTable {
+        font-size: 12px;
+    }
+
+    .contact-theading {
+        width: 120px !important;
+    }
+
+    .name-theading {
+        width: 50px !important;
+    }
+
+    .link-theading {
+        width: 202.4375px !important;
+    }
+
+    .email-theading {
+        width: 45px !important;
+    }
+
+
+    .updation-to-affiliate {
+        font-size: 13px;
+       
+    }
+    
+    .updation-from-affiliate {
+        font-size: 13px;
+    }
+    
+    .last-updation-affiliate {
+        font-size: 13px;
+    }
+    .date-filter-affiliate .date-input-affiliate {
+        width:140px;
+        font-size: 12px;
+        height: 33px
+            }
+            .search-category-affiliate .search-date-hubspot .hub-date-btn {
+                height: 33px;
+                padding: 0px 20px;
+            }
+            .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+                margin-top:-7px;
+            }
+
+            .copied-text {
+               
+                font-size: 11px;
+                top: 10px;
+                left: 117px;
+                width: 150px;
+            }
+}
+
+
+@media(min-width:1000px) and (max-width:1299px) {
+    .search-overall input {
+        width: 95%;
+    }
+
+    .manage-affiliateTable {
+        font-size: 12px;
+    }
+
+    .contact-theading {
+        width: 165px !important;
+    }
+
+    .name-theading {
+        width: 55px !important;
+    }
+
+    .link-theading {
+        width: 202.4375px !important;
+    }
+
+    .families-theading{
+        width:68px !important;
+    }
+    .email-theading {
+        width: 48px !important;
+    }
+    .organization-heading{
+        width:190px !important;
+    }
+    .lastUpdate-theading{
+        width:158px !important;
+    }
+    .updation-to-affiliate {
+        font-size: 13px;
+       
+    }
+    
+    .updation-from-affiliate {
+        font-size: 13px;
+    }
+    
+    .last-updation-affiliate {
+        font-size: 14px;
+    }
+
+    .date-filter-affiliate .date-input-affiliate {
+width:140px;
+    }
+
+ 
+
+
+}
+
+@media(min-width:1601px) and (max-width:1890px) {
+        
+    .last-updation-affiliate ,.updation-from-affiliate,.updation-to-affiliate {
+        font-size: 13px;
+        padding-bottom: 0px;
+    }
+ 
+}

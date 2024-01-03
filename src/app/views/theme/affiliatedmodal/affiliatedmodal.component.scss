@@ -1,0 +1,33 @@
+.close img{
+    width: 23px;
+}
+.close{
+    border:none;
+    background: none;
+}
+.copy-content{
+    display: flex;
+    .form-control {
+        border-radius: 0.375rem 0rem 0rem 0.375rem;
+    }
+}
+.copy-btn{
+    border:1px solid #b1b7c1;
+    background: none;
+    border-radius:  0rem  0.375rem  0.375rem 0rem;
+}
+.modal-boy{
+    margin-bottom: 20px;
+}
+
+.form-group{
+    padding-bottom:10px
+}
+
+label{
+    margin-bottom: 10px;
+}
+
+.alert-text{
+    color:red;
+}

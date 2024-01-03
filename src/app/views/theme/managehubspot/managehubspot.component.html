@@ -1,0 +1,129 @@
+<!-- Heading -->
+<h4 class="manage-hubspot-heading">Hubspot Log</h4>
+
+<!-- Date Filter -->
+<div class="search-hubspot-hubspot">
+    <div class="form-group date-filter-hubspot">
+        <div class="date-section-hubspot">
+            <label class="last-updation-hubspot">Last Updation<span class="updation-from-hubspot">From:</span> </label>
+            <mat-form-field class="date-input-hubspot">
+                <input matInput [matDatepicker]="startDatepicker" placeholder="Start Date" [(ngModel)]="startDate"
+                    required>
+                <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #startDatepicker></mat-datepicker>
+            </mat-form-field>
+            <mat-error *ngIf="this.dateValidation">This field is required</mat-error>
+        </div>
+        <div class="date-section-hubspot">
+            <label class="updation-to-hubspot">To:</label>
+            <mat-form-field class="date-input-hubspot">
+                <input matInput [matDatepicker]="endDatepicker" placeholder="End Date" [(ngModel)]="endDate" required>
+                <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #endDatepicker></mat-datepicker>
+            </mat-form-field>
+            <mat-error *ngIf="this.endDateValidation">This field is required</mat-error>
+        </div>
+    </div>
+
+    <!-- Status Filter -->
+    <div class="form-group status-filter">
+        <select class="form-control search-field" [(ngModel)]="searchText" placeholder="Category Filter">
+            <option value="" selected>All Status</option>
+            <option value="success">Success</option>
+            <option value="Resend success">Resend Success</option>
+            <option value="Failure">Failure</option>
+        </select>
+    </div>
+
+    <!-- Search button -->
+    <div class="search-date-hubspot">
+        <button type="button" class="hub-date-btn btn-primary color-1"
+            (click)="searchBasedonStatus(startDate,endDate,searchText)">Search</button>
+    </div>
+</div>
+
+<!-- Global Search -->
+<div class="search-overall">
+    <c-input-group class="w-100 col-12">
+        <input type="search" [(ngModel)]="searchQuery" placeholder="Type here to search Name/Email...">
+        <span cInputGroupText class="searchButton" (click)="onSearch()">
+            <img src="../../../../assets/images/search-icon.png" />
+        </span>
+    </c-input-group>
+</div>
+
+<!-- Hubspot Table -->
+<table datatable [dtOptions]="dtOptions" class="row-border hover manage-hubspot-table" *ngIf="showhubspotGrid">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Data</th>
+            <th scope="col">Resend</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let hubspotdata of this.allHubspotData;let i=index  ">
+            <td>{{hubspotdata.Name}}</td>
+            <td>{{hubspotdata.Email}}</td>
+            <td>{{hubspotdata.Uploadeddateutc.split('T')[0]}}</td>
+            <td class="status-success"
+                [ngClass]="{'resend-success': hubspotdata.Status!='Failure','resend-failure':hubspotdata.Status=='Failure'}">
+                <!-- {{ hubspotdata.Status}} -->
+                {{this.resendClicked ? this.allHubspotData[i].Status :hubspotdata.Status}}
+                <span [innerHTML]="hubspotdata.Response.inlineMessage" class="tooltiptext-hubspot"></span>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary"
+                    (click)="viewHubspotData(hubspotdata.Data,i)">View</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-success"
+                    *ngIf="hubspotdata.Status!='Success' && hubspotdata.Status!='Resend Success'"
+                    (click)="resendData(hubspotdata.Id,hubspotdata.Data,i)">Resend</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!--  Result Modal-->
+<div class="view-familyresult">
+    <c-modal class="hubspot-modal" id="liveDemoModal" [visible]="visible"
+        (visibleChange)="openHubspotDataModal($event)">
+        <c-modal-body>
+            <div class="close-icon-alignment">
+                <button type="button" class="close-result-modal" (click)="closeModal()"><img
+                        src="../../../../assets/images/close-icon.png" alt="close-icon">
+                </button>
+            </div>
+            <div class="preview-heading">
+                <h5>Preview Details</h5>
+            </div>
+            <table class="row-border hover hubspot-table">
+                <tr class="table-body row" *ngFor="let fields of this.memberName;let i=index">
+                    <th class="col-6">
+                        {{fields.name}}
+                    </th>
+                    <td class="col-6">
+                        {{fields.value}}
+                    </td>
+                </tr>
+            </table>
+            <div>
+            </div>
+        </c-modal-body>
+    </c-modal>
+</div>
+
+<!-- Loader -->
+<!-- <div class="no-records" *ngIf="(!this.allHubspotData || this.allHubspotData.length < 1)">
+    <div>There are no Category records</div>
+</div> -->
+<!-- <div class="fade show" *ngIf="this.showHubspotLoader"
+    style="text-align: center; padding-top: calc(100vh / 2); height: 100vh">
+    <i class="spinner-grow spinner-grow-sm"></i>
+    <span class="m-1">Loading...</span>
+</div> -->

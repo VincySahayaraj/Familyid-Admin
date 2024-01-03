@@ -1,0 +1,90 @@
+<!-- MODAL FOR VISITORS -->
+<div class="view-invitors-section">
+
+  <div class="modal-header family-members-heading">
+    <h4 class="modal-title">
+      <div class="h3-heading">
+        <p class="name-your-family">Result of {{this.visitorname}}</p>
+      </div>
+    </h4>
+    <button type="button" class="close" (click)="close()"><img src="../../../../assets/images/close-icon.png"
+        alt="close-icon">
+    </button>
+  </div>
+
+  <div class="modal-boy modal-space">
+    <div class="container">
+      <div *ngIf="this.showResultGrid">
+        <div *ngFor="let attempt of this.attemptResult; let i = index;" class="attempt-acc-button">
+          <div class="attempt-heading" (click)="expand(i)">
+            <!-- <button class="accordion heading-attempt">Attempt <span class="attented-date">{{i+1}}</span> </button> -->
+            <div class="date-time-attempted">
+              <p class="heading-attempt">Attempted Date & Time: <span
+                class="attented-date">{{this.attemptDate[i].split('T')[0]}} & {{this.attemptDate[i].split('T')[1].split('.')[0]}}</span>
+            </p>
+            </div>
+            
+            <!-- <p class="heading-attempt"> <span
+                class="attented-date">{{this.attemptDate[i].split('T')[1].split('.')[0]}}</span></p> -->
+            <div class="arrow-attempt">
+              <img src="../../../../assets/images/Icons/Icon ionic-md-arrow-dropdown-1.png" class="black-right-arrow" />
+              <img src="../../../../assets/images/Icons/Icon ionic-md-arrow-dropdown.png"  class="green-down-arrow"  />
+            </div>
+          </div>
+          <div class="panel" [ngClass]="{ 'visible' : currentIndex === i }">
+            <div class="accordion-body result-body">
+              <section class="result-section-main">
+                <div class="result-inner-section">
+
+                  <div class="h3-heading">
+                    <p class="name-your-family">{{this.familyType[i]}} Family</p>
+                  </div>
+
+                  <div class="family-type-logo">
+                    <img src={{url}}{{this.imageUrl[i]}}{{imageFormat}} alt="family-logo">
+                  </div>
+                  <div class="progress-result-main">
+                    <div class="row percentage-score">
+                      <div *ngFor='let heading of attempt.CategorywiseScores;let i=index'
+                        class="col-6 col-lg-3 col-xl-3 col-sm-12 col-xs-12 progress-values">
+                        <p class="percentage-questions">{{heading.CategoryPercentage}}%</p>
+                        <mat-progress-bar mode="determinate" value={{heading.CategoryPercentage}}
+                          style="background-color: #E9E9E9;">
+                        </mat-progress-bar>
+                        <p class="progress-bar-text identity">{{heading.CategoryName}} </p>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="family-content" [ngClass]="readMore ? 'family-content' : 'family-content-scroll'">
+
+                    <div [innerHTML]="this.textIndividual[i]">
+                    </div>
+                    <a class="read-more" (click)="toggleView(i)">
+                      {{readMore ? 'Read more':'Show less'}}
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="modal-footer">
+        <button class="btn btn-success">
+           Update
+        </button>
+    </div> -->
+</div>
+
+
+
+<div class="fade show" *ngIf="!this.showResultGrid"
+  style="text-align: center; padding-top: calc(100vh / 2); height: 100vh">
+  <i class="spinner-grow spinner-grow-sm"></i>
+  <span class="m-1">Loading...</span>
+</div>

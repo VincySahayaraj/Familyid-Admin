@@ -1,0 +1,313 @@
+.resend-success {
+    color: #4c8f42;
+    font-weight: 400;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #4c8f42;
+}
+
+.resend-failure {
+
+    color: #de1d0f;
+    font-weight: 400;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ed0808;
+}
+
+.data-show td {
+    border-top: none !important;
+}
+
+.data-show table.dataTable.row-border tbody td {
+    border-top: none;
+}
+
+.data-show tbody td,
+.data-show tbody tr {
+    border-top: none !important;
+}
+
+.search-hubspot-hubspot {
+
+    display: flex;
+    gap: 21px;
+    margin-bottom: 10px;
+    // justify-content: space-between;
+
+    .date-filter-hubspot {
+        display: flex;
+        gap: 21px;
+        align-items: baseline;
+    }
+
+    .status-filter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .search-field {
+        width: 200px;
+        margin-bottom: 24px;
+        background: url('../../../../assets/images/down-arrow-5.png') no-repeat right center;
+        background-position: 96% center;
+        background-size: 18px 20px;
+        padding-right: 35px;
+        cursor: pointer;
+    }
+
+    .search-date-hubspot {
+        .hub-date-btn {
+            border-radius: 10px;
+            border: none;
+            background-color: #321fdb;
+            padding: 7px 20px;
+            color: #fff;
+            // height: 40px;
+        }
+    }
+}
+
+
+.view-familyresult {
+    .modal-body {
+        padding: 40px !important;
+    }
+}
+
+.preview-heading {
+    display: flex;
+    justify-content: center;
+}
+
+.close-result-modal {
+    border: none;
+    background: none;
+
+}
+
+.close-result-modal img {
+    width: 50px;
+}
+
+.close-icon-alignment {
+
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 14px;
+
+}
+
+.hubspot-table {
+    width: 100%;
+    margin-top: 30px;
+    table-layout: fixed;
+}
+
+
+.hubspot-table th {
+    // border:1px solid #000;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+
+}
+
+.hubspot-table td {
+
+    word-wrap: break-word;
+
+}
+
+.hubspot-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.hubspot-table tr:hover {
+    background-color: #ddd;
+}
+
+.search-overall {
+    display: flex;
+    width: 100%;
+    margin-bottom: 24px;
+
+    input {
+        padding: 0px 15px;
+        width: 96%;
+        border-radius: 5px;
+        border: 1px solid #b1b7c1;
+        height: 40px;
+        background-color: transparent;
+    }
+}
+
+[type=search] {
+    outline-offset: 0px !important;
+}
+
+.searchButton {
+    cursor: pointer;
+}
+
+.searchButton img {
+    width: 23px;
+}
+
+.search-hubspot-hubspott .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+
+    background: transparent;
+
+}
+
+.date-filter-hubspot .date-input-hubspot {
+    border: 1px solid #b1b7c1;
+    height: 40px;
+    border-radius: 7px;
+}
+
+.date-filter-hubspot .mat-mdc-form-field-bottom-align::before {
+
+    height: unset;
+    content: unset;
+}
+
+.date-filter-hubspot .mat-mdc-form-field-icon-suffix {
+
+    align-items: baseline;
+
+}
+
+.mat-mdc-form-field-infix {
+    min-height: unset;
+    padding: 0px !important;
+}
+
+.mat-mdc-form-field-flex {
+
+    height: 40px;
+    align-items: center !important;
+}
+
+.manage-hubspot-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.updation-to-hubspot {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.updation-from-hubspot {
+    font-size: 18px;
+    margin: 0px 12px;
+    font-weight: 400;
+}
+
+.last-updation-hubspot {
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.resend-failure:hover .tooltiptext-hubspot,
+.resend-success:hover .tooltiptext-hubspot {
+    display: block;
+}
+
+.resend-failure .tooltiptext-hubspot,
+.resend-success .tooltiptext-hubspot {
+
+    font-size: 12px;
+    font-weight: 400;
+    color: #4f5d73 !important;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #4f5d73 !important;
+    position: absolute;
+    background: #c9c6a4;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+.tooltiptext-hubspot p {
+    margin-bottom: 0px;
+}
+
+.resend-success .tooltiptext-hubspot,
+.status-success .tooltiptext-hubspot {
+    display: none;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background: none;
+}
+
+@media(min-width:1100px) and (max-width:1600px) {
+    .search-overall input {
+        width: 95%;
+    }
+
+    .date-section-hubspot {
+        display: flex;
+        align-items: baseline;
+
+    }
+
+    .date-filter-hubspot .date-input-hubspot {
+        width: 140px;
+        height: 33px;
+    }
+
+    .manage-hubspot-table {
+        font-size: 12px;
+    }
+
+    .last-updation-hubspot {
+        font-size: 13px;
+    }
+
+    .updation-from-hubspot {
+        font-size: 13px;
+    }
+
+    .updation-to-hubspot {
+        font-size: 13px;
+    }
+
+    .mat-mdc-form-field-flex {
+        font-size: 12px;
+    }
+
+    .search-hubspot-hubspot .search-field {
+        width: 140px;
+        height: 33px;
+        font-size: 12px;
+    }
+
+    .search-hubspot-hubspot .search-date-hubspot .hub-date-btn {
+        height: 33px;
+        font-size: 12px;
+    }
+
+    .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+        margin-top: -10px;
+    }
+}
+
+@media(min-width:1601px) and (max-width:1890px) {
+
+    .last-updation-hubspot,
+    .updation-from-hubspot,
+    .updation-to-hubspot {
+        font-size: 13px;
+    }
+}
+
+
+
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
